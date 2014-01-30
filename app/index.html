@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+
+    </head>
+    <body>
+    <div class="message"></div>
+    </body>
+
+    <script src="/bower_components/jquery/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/chartjs/Chart.js"></script>
+    <script src="/js/app.js"></script>
+    <script>
+        var user = {
+            first_name: "matt",
+            last_name: "wickman",
+            time: Date.now()
+        }
+        var settings = {
+            data: user,
+            type: "put",
+            success: function(data) { console.log(data); $('.message').text(data.toString()) }
+        }
+        console.log('posting');
+        $.ajax('/db/users', settings);
+    </script>
+</html>
